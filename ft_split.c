@@ -6,7 +6,7 @@
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:31:30 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/23 17:21:43 by agilles          ###   ########.fr       */
+/*   Updated: 2023/10/23 19:27:45 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,12 @@ int	count_word(char const *s, char c)
 		if (s[i] == c && i == 0)
 		{
 			while (s[i + 1] == c)
-			{
 				i++;
-				if (s[i] == '\0')
-					return (count);
-			}
 		}
 		else if (s[i] == c || s[i + 1] == '\0')
 		{
 			count++;
-			while (s[i + 1] == c)
+			while (s[i + 1] == c && c != '\0')
 				i++;
 		}
 	}
@@ -63,16 +59,18 @@ int	word_len(char const *s, char c, int i)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int	index;
 	int	i;
+	int	index;
 	int	j;
 	
 	index = 0;
 	j = 0;
 	i = 0;
+	if (c == '\0')
+		return (0);
 	split = malloc(sizeof(char *) * (count_word(s, c) + 1));
 	if (!split)
-		return (NULL);
+		return (0);
 	while (index < count_word(s, c))
 	{
 		i = word_pos(s, c, i);
@@ -88,5 +86,6 @@ char	**ft_split(char const *s, char c)
 		split[index++][j] = '\0';
 		j = 0;
 	}
+	split[index] = '\0';
 	return (split);
 }
