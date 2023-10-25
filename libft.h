@@ -6,7 +6,7 @@
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 14:10:31 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/25 16:58:26 by agilles          ###   ########.fr       */
+/*   Updated: 2023/10/25 17:08:18 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);
 
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_bzero(void *s, size_t n);
 #endif
