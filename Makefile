@@ -6,7 +6,7 @@
 #    By: agilles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/16 17:22:51 by agilles           #+#    #+#              #
-#    Updated: 2023/10/26 16:24:19 by agilles          ###   ########.fr        #
+#    Updated: 2023/10/26 18:12:12 by agilles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
@@ -52,6 +52,10 @@ OBJ = $(SRC:.c=.o)
 SRC_BONUS =	ft_lstnew.c\
 		ft_lstadd_front.c\
 		ft_lstsize.c\
+		ft_lstlast.c\
+		ft_lstadd_back.c\
+		ft_lstdelone.c\
+		ft_lstclear.c\
 
 OBJ_BONUS = $(SRC_BONUS:.c=.o)
 
