@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 17:26:21 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/25 17:56:51 by agilles          ###   ########.fr       */
+/*   Created: 2023/10/26 14:58:08 by agilles           #+#    #+#             */
+/*   Updated: 2023/10/26 16:08:22 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list	*ft_lstnew(void *content)
 {
-	char	n;
-	int		i;
+	t_list	*liste;
 
-	i = 0;
-	n = '\n';
-	while (i < ((int)ft_strlen(s)))
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	write(fd, &n, 1);
+	liste = malloc(sizeof(t_list));
+	if (!liste)
+		return (0);
+	liste->content = content;
+	liste->next = 0;
+	return (liste);
 }
