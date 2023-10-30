@@ -6,13 +6,13 @@
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 16:27:50 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/21 18:28:08 by agilles          ###   ########.fr       */
+/*   Updated: 2023/10/29 18:12:34 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*nullsub(void)
+static char	*nullsub(void)
 {
 	char	*str;
 

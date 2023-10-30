@@ -6,13 +6,13 @@
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 17:31:30 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/24 14:56:46 by agilles          ###   ########.fr       */
+/*   Updated: 2023/10/29 18:34:08 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_word(char const *s, char c)
+static int	count_word(char const *s, char c)
 {
 	int	i;
 	int	count;
@@ -36,14 +36,14 @@ int	count_word(char const *s, char c)
 	return (count);
 }
 
-int	word_pos(char const *s, char c, int i)
+static int	word_pos(char const *s, char c, int i)
 {
 	while (s[i] == c)
 		i++;
 	return (i);
 }
 
-int	word_len(char const *s, char c, int i)
+static int	word_len(char const *s, char c, int i)
 {
 	int	len;
 
@@ -56,11 +56,12 @@ int	word_len(char const *s, char c, int i)
 	return (len);
 }
 
-void	ermalloc(char **split, int index)
+static char	**ermalloc(char **split, int index)
 {
 	while (index >= 0)
 		free(split[index--]);
 	free(split);
+	return (0);
 }
 
 char	**ft_split(char const *s, char c)
@@ -81,12 +82,12 @@ char	**ft_split(char const *s, char c)
 		i = word_pos(s, c, i);
 		split[index] = malloc(sizeof(char) * (word_len(s, c, i) + 1));
 		if (!split[index])
-			ermalloc(split, index);
+			return (ermalloc(split, index));
 		while (s[i] != '\0' && s[i] != c)
 			split[index][j++] = s[i++];
 		split[index++][j] = '\0';
 		j = 0;
 	}
-	split[index] = '\0';
+	split[index] = 0;
 	return (split);
 }

@@ -6,13 +6,13 @@
 /*   By: agilles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 15:14:40 by agilles           #+#    #+#             */
-/*   Updated: 2023/10/24 17:13:50 by agilles          ###   ########.fr       */
+/*   Updated: 2023/10/29 18:12:50 by agilles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digit_count(int n)
+static int	digit_count(int n)
 {
 	int	digit;
 
